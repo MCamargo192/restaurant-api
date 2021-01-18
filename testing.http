@@ -1,0 +1,61 @@
+# {
+#     address: {
+#         building: String,
+#         coord: [Number],
+#         street: String,
+#         zipcode: String
+#     },
+#     borough: String,
+#     cuisine: String,
+#     grades: [{
+#         date: Date,
+#         grade: String,
+#         score: Number
+#     }],
+#     name: String,
+#     restaurant_id: String
+# }
+
+// READ
+// GET ALL
+# GET http://localhost:8080/api/restaurants
+// GET ONE
+# GET http://localhost:8080/api/restaurants/6005b0009925061c7c1652c1
+# // GET BY REGION
+# GET http://localhost:8080/api/restaurants?page=1&perPage=1&borough=York
+# GET http://localhost:8080/api/restaurants?page=2&perPage=3
+# GET http://localhost:8080/api/restaurants?page=2
+
+# // CREATE
+# POST http://localhost:8080/api/restaurants
+# Content-Type: application/json
+
+# {
+#     "address": {
+#         "building": "1603",
+#         "coord": [-73.81363999999999,40.82941100000001],
+#         "street": "Eglinton West",
+#         "zipcode": "M6E0A1"
+#     },
+#     "borough": "York",
+#     "cuisine": "Canadian",
+#     "grades": [{
+#       "date":"2014-06-21T00:00:00.000Z",
+#       "grade":"A",
+#       "score":5}],
+#     "name": "Marcelus Bar",
+#     "restaurant_id": "6475406009"
+# }
+
+
+// UPDATE
+# PUT http://localhost:8080/api/restaurants/6005b0009925061c7c1652c1
+# Content-Type: application/json
+
+# {
+#     "name": "Maris Bar",
+#     "restaurant_id": "6475406011"
+# }
+
+# // DELETE
+# DELETE http://localhost:8080/api/restaurants/6005b0009925061c7c1652c1
