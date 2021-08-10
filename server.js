@@ -9,13 +9,11 @@
 ************************************************************************************************/
 
 const express = require('express');
-const { wakeDyno } = require('heroku-keep-awake');
 const cors = require('cors');
 const RestaurantDB = require('./modules/restaurantDB.js');
 
 const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
-const DYNO_URL = 'https://morning-crag-64182.herokuapp.com/';
 const db = new RestaurantDB('mongodb+srv://mcamargo192:mcWEB422@2021@cluster0.our3z.mongodb.net/sample_restaurants?retryWrites=true&w=majority');
 
 app.use(cors());
@@ -69,7 +67,6 @@ app.delete('/api/restaurants/:id', (req, res) => {
 
 db.initialize().then(() => {
     app.listen(HTTP_PORT, () => {
-        wakeDyno(DYNO_URL);
         console.log(`server listening on: ${HTTP_PORT}`);
     });
 }).catch(err => console.log(err));
