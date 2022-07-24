@@ -16,7 +16,7 @@ const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
 const db = new RestaurantDB('mongodb+srv://mcamargo192:mcWEB422@2021@cluster0.our3z.mongodb.net/sample_restaurants?retryWrites=true&w=majority');
 
-app.use(cors());
+app.use(cors({ origin: '*', credentials: true }));
 app.use(express.json());
 
 // Routes
